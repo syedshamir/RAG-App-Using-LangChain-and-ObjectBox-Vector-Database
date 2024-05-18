@@ -48,7 +48,7 @@ def vector_embedding():
         st.session_state.docs = st.session_state.loader.load() ## Documents Loading
         st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size  = 1000, chunk_overlap = 200)
         st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs[:20])
-        st.session_state.vectors = ObjectBox.from_documents(st.session_state.final_documents,  st.session_state.embeddings, embeddings_dimensions = 768)
+        st.session_state.vectors = ObjectBox.from_documents(st.session_state.final_documents,  st.session_state.embeddings, embedding_dimensions = 768)
 
 input_prompt = st.text_input("Enter Your Question From Documents")
 if st.button("Documents Embedding"): #when a button is pressed, it should load all doc and perfrom vector embedding
